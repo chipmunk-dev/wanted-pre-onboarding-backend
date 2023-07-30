@@ -50,10 +50,22 @@ API Document: `http://localhost:8080/api-docs/`
 ## 구현한 API의 동작을 촬영한 데모 영상 링크
 
 #### 회원가입
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/c518bf72-d43d-4c19-99c5-3b30349c32a9
 
 #### 로그인
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/dd1fb391-6d16-4874-95c3-ece2598a606d
 
-#### Todo (CURD)
+#### Todo 생성 & 전체 조회
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/c302c34c-658c-4ab7-9142-e5f28cd9889b
+
+#### Todo 상세 조회
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/7d926fb4-a42a-4700-b326-0ecddbf84877
+
+#### Todo 수정
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/66ef732d-dcb2-4a45-8c30-5bd23af796c6
+
+#### Todo 삭제
+https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/0b03a7a7-af32-47fa-b340-dca50c382010
 
 ## 구현 방법 및 이유에 대한 간략한 설명
 
