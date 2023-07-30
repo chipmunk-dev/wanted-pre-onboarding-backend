@@ -37,7 +37,7 @@ API Document: #
 
 #### 로그인
 
-#### Todo
+#### Todo (CURD)
 
 ## 구현 방법 및 이유에 대한 간략한 설명
 
