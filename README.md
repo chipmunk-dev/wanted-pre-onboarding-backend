@@ -31,8 +31,6 @@ API Document: #
 
 <img src="./src/document/todolist_erd.jpg" />
 
-# er-diagram image
-
 ## 구현한 API의 동작을 촬영한 데모 영상 링크
 
 #### 회원가입
