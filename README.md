@@ -86,4 +86,4 @@ Bcrypt를 이용하여 비밀번호를 암호화하였습니다.
 
 ## API 명세(request/response 포함)
 
-API Document: `http://localhost:8080/api-docs/`
+![API_명세서](https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/c4f69914-ec26-4571-878d-166555432ab2)
