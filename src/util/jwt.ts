@@ -9,6 +9,6 @@ export const createToken = (info: Member) => {
 };
 
 export const decodeToken = (token: string) => {
-  const { secret, expire } = env.jwt;
+  const { secret } = env.jwt;
   return secret && jwt.verify(token, secret);
 };

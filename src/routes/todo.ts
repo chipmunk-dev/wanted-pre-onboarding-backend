@@ -12,10 +12,10 @@ import { todoValidation } from '../middleware/validation';
 
 const route = express.Router();
 
-route.post('/', todoValidation, auth, createTodo);
+route.post('/', auth, todoValidation, createTodo);
 route.get('/', getTodoList);
 route.get('/:id', getTodo);
-route.put('/:id', todoValidation, auth, updateTodo);
+route.put('/:id', auth, todoValidation, updateTodo);
 route.delete('/:id', auth, deleteTodo);
 
 export default route;
