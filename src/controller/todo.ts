@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { promisePool } from '../config/db';
 import { Todo } from '../types/todo';
 import { todoToTodoResponseDto } from '../mapper/todo';
+import { typeGuard } from '../util/typeGuard';
 
 export const createTodo = async (request: Request, response: Response) => {
   const { contents } = request.body;
@@ -55,6 +56,7 @@ export const getTodo = async (request: Request, response: Response) => {
 export const updateTodo = async (request: Request, response: Response) => {
   const { id } = request.params;
   const { contents } = request.body;
+  const { member } = response.locals;
 
   try {
     const [result] = await promisePool.query(
@@ -62,7 +64,15 @@ export const updateTodo = async (request: Request, response: Response) => {
     );
     if (Array.isArray(result) && result[0]) {
       const todo = result[0];
-      (todo as Todo).contents = contents;
+      if (typeGuard<Todo>(todo, 'todo_id')) {
+        todo.contents = contents;
+
+        if (todo.member_id !== member.member_id) {
+          return response
+            .status(400)
+            .json({ message: '글 작성자가 아닙니다.' });
+        }
+      }
 
       await promisePool.query(
         `UPDATE todo SET contents='${contents}' WHERE todo_id=${id}`
@@ -79,6 +89,7 @@ export const updateTodo = async (request: Request, response: Response) => {
 
 export const deleteTodo = async (request: Request, response: Response) => {
   const { id } = request.params;
+  const { member } = response.locals;
 
   try {
     const [result] = await promisePool.query(
@@ -86,6 +97,13 @@ export const deleteTodo = async (request: Request, response: Response) => {
     );
     if (Array.isArray(result) && result[0]) {
       const todo = result[0];
+      if (typeGuard<Todo>(todo, 'todo_id')) {
+        if (todo.member_id !== member.member_id) {
+          return response
+            .status(400)
+            .json({ message: '글 작성자가 아닙니다.' });
+        }
+      }
 
       await promisePool.query(`DELETE FROM todo WHERE todo_id=${id}`);
       return response.sendStatus(204);
