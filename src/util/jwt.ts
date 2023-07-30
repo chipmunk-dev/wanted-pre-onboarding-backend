@@ -7,3 +7,8 @@ export const createToken = (info: Member) => {
   const { secret, expire } = env.jwt;
   return secret && jwt.sign({ data: info }, secret, { expiresIn: expire });
 };
+
+export const decodeToken = (token: string) => {
+  const { secret, expire } = env.jwt;
+  return secret && jwt.verify(token, secret);
+};
