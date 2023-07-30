@@ -41,8 +41,6 @@ $ npm run start
 1. 서버를 실핸한다.
 2. `http://localhost:8080/api-docs/`를 url에 입력하여 문서를 확인한다.
 
-API Document: `http://localhost:8080/api-docs/`
-
 ## 데이터베이스 테이블 구조
 
 <img src="./src/document/todolist_erd.jpg" />
@@ -50,23 +48,42 @@ API Document: `http://localhost:8080/api-docs/`
 ## 구현한 API의 동작을 촬영한 데모 영상 링크
 
 #### 회원가입
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/c518bf72-d43d-4c19-99c5-3b30349c32a9
 
 #### 로그인
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/dd1fb391-6d16-4874-95c3-ece2598a606d
 
 #### Todo 생성 & 전체 조회
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/c302c34c-658c-4ab7-9142-e5f28cd9889b
 
 #### Todo 상세 조회
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/7d926fb4-a42a-4700-b326-0ecddbf84877
 
 #### Todo 수정
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/66ef732d-dcb2-4a45-8c30-5bd23af796c6
 
 #### Todo 삭제
+
 https://github.com/chipmunk-dev/wanted-pre-onboarding-backend/assets/107650362/0b03a7a7-af32-47fa-b340-dca50c382010
 
 ## 구현 방법 및 이유에 대한 간략한 설명
 
+#### 회원가입 & 로그인
+
+Bcrypt를 이용하여 비밀번호를 암호화하였습니다.
+로그인시 planPassword와 hash Password를 compare하여 비밀번호를 검증합니다.
+또한 로그인시 jwt를 이용하여 accessToken을 만들며, 유효시간은 1시간으로 설정했습니다.
+
+#### TODO CRUD
+
+기본적으로 생성, 수정, 삭제는 로그인된 회원만 사용가능하게 구현했습니다.
+그리고 수정과 삭제는 요구사항에 적혀있듯, 글을 작성한 본인만 사용할 수 있도록 하였습니다.
+
 ## API 명세(request/response 포함)
+
+API Document: `http://localhost:8080/api-docs/`
