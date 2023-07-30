@@ -8,13 +8,14 @@ import {
   deleteTodo,
 } from '../controller/todo';
 import { auth } from '../middleware/auth';
+import { todoValidation } from '../middleware/validation';
 
 const route = express.Router();
 
-route.post('/', auth, createTodo);
+route.post('/', todoValidation, auth, createTodo);
 route.get('/', getTodoList);
 route.get('/:id', getTodo);
-route.put('/:id', auth, updateTodo);
+route.put('/:id', todoValidation, auth, updateTodo);
 route.delete('/:id', auth, deleteTodo);
 
 export default route;
